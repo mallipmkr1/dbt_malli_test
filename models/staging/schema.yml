@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging
+    database: "{{ env_var('DBT_DATABASE', 'dotted-ratio-449112-u0') }}"
+    schema: "{{ env_var('DBT_SCHEMA', 'kestra_dataset') }}"
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
+         # freshness:
+           # error_after: {count: 6, period: hour}
